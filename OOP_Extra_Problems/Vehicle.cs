@@ -1,6 +1,6 @@
 ﻿namespace OOP_Extra_Problems;
 
-public class Vehicle
+public abstract class Vehicle
 {
     // Encapsulated properties
     public string VehicleId { get; private set; }
@@ -14,6 +14,9 @@ public class Vehicle
         Model = model;
         BatteryPercentage = batteryPercentage;
     }
+
+    // Abstract method (contract)
+    public abstract double CalculateTripCost(double distanceInKm);
 
     // Display vehicle details
     public void DisplayDetails()
