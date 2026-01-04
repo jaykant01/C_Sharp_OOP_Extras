@@ -6,15 +6,21 @@ class Program
     {
         Console.WriteLine("Welcome to Eco-Ride Urban Mobility System");
 
-        // Creating a vehicle (UC-1)
-        Vehicle vehicle = new Vehicle(
-            vehicleId: "EV101",
-            model: "EcoRide X1",
-            batteryPercentage: 85
-        );
+        // Mixed vehicle list (polymorphism)
+        List<Vehicle> fleet = new List<Vehicle>
+            {
+                new ElectricCar("CAR101", "EcoCar Pro", 80, 5),
+                new ElectricScooter("SCOOT201", "EcoScoot Lite", 65, 45)
+            };
 
-        vehicle.DisplayDetails();
+        Console.WriteLine("\nProcessing Rentals...\n");
 
-        Console.ReadLine();
+        foreach (Vehicle vehicle in fleet)
+        {
+            double cost = vehicle.CalculateTripCost(10);
+            Console.WriteLine($"{vehicle.GetType().Name} Trip Cost: ${cost}");
+        }
+
+        Console.ReadKey();
     }
 }

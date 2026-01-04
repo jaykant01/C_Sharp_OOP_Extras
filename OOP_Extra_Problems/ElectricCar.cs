@@ -1,6 +1,6 @@
 ﻿namespace OOP_Extra_Problems;
 
-public class ElectricCar
+public class ElectricCar : Vehicle
 {
     public int SeatingCapacity { get; private set; }
 
@@ -17,9 +17,10 @@ public class ElectricCar
         Console.WriteLine($"Seating Capacity: {SeatingCapacity}");
     }
 
+    // Polymorphic override
     public override double CalculateTripCost(double distanceInKm)
     {
-        return distanceInKm * 15;
+        return 5.00 + (0.50 * distanceInKm);
     }
 }
 
@@ -40,8 +41,9 @@ public class ElectricScooter : Vehicle
         Console.WriteLine($"Max Speed Limit: {MaxSpeedLimit} km/h");
     }
 
-    public override double CalculateTripCost(double distanceInKm)
+    // Polymorphic override
+    public override double CalculateTripCost(double minutes)
     {
-        return distanceInKm * 7; 
+        return 1.00 + (0.15 * minutes);
     }
 }
